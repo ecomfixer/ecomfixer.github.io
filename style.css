@@ -18,6 +18,7 @@
   --wrap: 1100px;
   --narrow: 760px;
   --navh: 64px;
+  --striph: 0px;   /* mobile section strip; set at the nav collapse breakpoint */
 
   /* Manrope, not Space Grotesk: Space Grotesk ships no Cyrillic, so every RU
      heading would silently fall back to Segoe UI. */
@@ -97,7 +98,7 @@ a:hover{ color:var(--accent-hi); }
 .band{
   padding-block:clamp(64px,9vw,116px);
   border-top:1px solid var(--border);
-  scroll-margin-top:calc(var(--navh) + 8px);
+  scroll-margin-top:calc(var(--navh) + var(--striph) + 8px);
 }
 .band--tight{ padding-block:clamp(40px,6vw,64px); border-top:0; }
 .band--alt{ background:var(--bg-alt); }
@@ -141,6 +142,82 @@ a:hover{ color:var(--accent-hi); }
 @media (max-width:880px){
   .nav__links{ display:none; }
   .nav__inner .btn{ margin-left:auto; }
+  /* the strip takes over for the hidden desktop links, and adds its own
+     height to the sticky header — hence --striph below */
+  :root{ --striph:40px; }
+}
+
+/* ---------- mobile section strip ---------- */
+
+.navstrip{
+  display:none;                 /* desktop: no render, no layout impact */
+  position:sticky;
+  top:var(--navh);              /* sits directly under the nav and sticks with it */
+  z-index:49;
+  height:var(--striph);
+  background:var(--bg);
+  border-bottom:1px solid var(--border);
+}
+
+.navstrip__scroll{
+  height:100%;
+  display:flex;
+  align-items:stretch;
+  gap:4px;
+  padding-inline:clamp(20px,5vw,32px);
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  scroll-behavior:smooth;
+}
+.navstrip__scroll::-webkit-scrollbar{ display:none; }
+
+.navstrip__link{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:44px;
+  padding:0 13px;
+  font-family:var(--f-body);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--muted);
+  text-decoration:none;
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+  transition:color .18s var(--ease), border-color .18s var(--ease);
+}
+.navstrip__link:hover{ color:var(--text); }
+.navstrip__link.is-active{
+  color:var(--accent);
+  border-bottom-color:var(--accent);
+}
+
+/* swipe hints — only shown on the side that actually has more to reveal */
+.navstrip::before,
+.navstrip::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width:32px;
+  pointer-events:none;
+  z-index:1;
+  opacity:0;
+  transition:opacity .2s var(--ease);
+}
+.navstrip::before{ left:0;  background:linear-gradient(to right, var(--bg), rgba(11,13,15,0)); }
+.navstrip::after { right:0; background:linear-gradient(to left,  var(--bg), rgba(11,13,15,0)); }
+.navstrip.has-start::before{ opacity:1; }
+.navstrip.has-end::after{ opacity:1; }
+
+/* Must come after the display:none above — same specificity, so source order
+   decides which one wins. */
+@media (max-width:880px){
+  .navstrip{ display:block; }
 }
 
 /* ---------- buttons ---------- */
@@ -176,7 +253,7 @@ a:hover{ color:var(--accent-hi); }
 .hero{
   position:relative;
   padding-block:clamp(56px,9vw,104px) clamp(64px,9vw,110px);
-  scroll-margin-top:calc(var(--navh) + 8px);
+  scroll-margin-top:calc(var(--navh) + var(--striph) + 8px);
   overflow:hidden;
 }
 .hero__glow{
