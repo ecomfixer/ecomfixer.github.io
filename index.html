@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Артём Матвеев — возврат брошенных корзин и CRO для e-commerce</title>
+<meta name="description" content="Возвращаю брошенные корзины через Telegram, SMS и WhatsApp. Вернул магазину $50,000+ за 90 дней. Пришлите ссылку на магазин — получите бесплатный видео-аудит.">
+<link rel="canonical" href="./">
+
+<!-- OG / Twitter. При деплое заменить относительные пути og:image / twitter:image
+     на абсолютные (https://вашдомен.ru/assets/og.png) — часть парсеров не резолвит
+     относительные. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Артём Матвеев — возврат брошенных корзин и CRO для e-commerce">
+<meta property="og:description" content="Возвращаю брошенные корзины через Telegram, SMS и WhatsApp. Вернул магазину $50,000+ за 90 дней. Пришлите ссылку на магазин — получите бесплатный видео-аудит.">
+<meta property="og:image" content="https://ecomfixer.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Артём Матвеев — возврат брошенных корзин и CRO для e-commerce">
+<meta name="twitter:description" content="Возвращаю брошенные корзины через Telegram, SMS и WhatsApp. Вернул магазину $50,000+ за 90 дней. Пришлите ссылку на магазин — получите бесплатный видео-аудит.">
+<meta name="twitter:image" content="https://ecomfixer.github.io/assets/og.png">
+
+<meta name="theme-color" content="#0B0D0F">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+
+<!-- Включает стартовое состояние scroll-reveal. Обработчик load — страховка:
+     если main.js не выполнился, класс снимается и страница видна целиком. -->
+<script>
+document.documentElement.classList.add('js');
+addEventListener('load', function () {
+  if (!window.__revealsReady) document.documentElement.classList.remove('js');
+});
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#recovery">Перейти к содержимому</a>
+
+<header class="nav">
+  <div class="nav__inner wrap">
+    <a class="wordmark" href="#recovery">Артём Матвеев</a>
+    <nav class="nav__links" aria-label="Разделы">
+      <a href="#case">Кейс</a>
+      <a href="#cro">CRO</a>
+      <a href="#stores">Магазины</a>
+      <a href="#bots">Боты</a>
+      <a href="#about">Обо мне</a>
+    </nav>
+    <a class="btn btn--accent btn--sm" href="#contact">Бесплатный аудит</a>
+  </div>
+</header>
+
+<!-- Мобильная полоса разделов. Липнет прямо под навбаром, на десктопе скрыта.
+     Обычные ссылки — подсветка активного пункта в main.js только улучшение. -->
+<nav class="navstrip" aria-label="Быстрые ссылки по разделам">
+  <div class="navstrip__scroll">
+    <a class="navstrip__link" href="#case">Кейс</a>
+    <a class="navstrip__link" href="#how">Как это работает</a>
+    <a class="navstrip__link" href="#cro">CRO</a>
+    <a class="navstrip__link" href="#stores">Магазины</a>
+    <a class="navstrip__link" href="#bots">Боты</a>
+    <a class="navstrip__link" href="#more">Ещё</a>
+    <a class="navstrip__link" href="#about">Обо мне</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============================ HERO ============================ -->
+<section id="recovery" class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+
+    <p class="eyebrow reveal">Возврат брошенных корзин — Telegram · SMS · WhatsApp</p>
+
+    <h1 class="reveal">Ваш магазин уже нашёл покупателей.<br>Большинство уходит на чекауте.<br><em>Я возвращаю их.</em></h1>
+
+    <p class="lede reveal">Я собираю цепочки сообщений в Telegram, SMS и WhatsApp, которые вернули <strong>$50,000+ за 90 дней одному магазину</strong> — без дополнительного рекламного бюджета, без раздачи скидок и без созвонов. Пришлите ссылку на ваш магазин — покажу, сколько денег вы сейчас теряете.</p>
+
+    <div class="hero__cta reveal">
+      <a class="btn btn--accent btn--lg" href="#contact">Прислать ссылку на магазин <span aria-hidden="true">→</span></a>
+      <p class="microcopy">Вы получите короткий персональный видео-аудит магазина. Бесплатно. Без единого созвона.</p>
+    </div>
+
+    <figure class="herostat reveal">
+      <div class="herostat__num num" data-count="50000" data-prefix="$" data-suffix="+">$50,000+</div>
+      <figcaption>за 90 дней · один магазин · два канала</figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ОТЗЫВ T1: раскрыть, когда придёт материал — убрать атрибут `hidden` ниже. -->
+<section class="wrap band band--tight" hidden>
+  <blockquote class="quote">
+    <p>Текст отзыва.</p>
+    <cite><b>Имя клиента</b><span>Должность, компания</span></cite>
+  </blockquote>
+</section>
+<!-- /ОТЗЫВ T1 -->
+
+<!-- ============================ MIRROR ============================ -->
+<section class="band mirror">
+  <div class="wrap wrap--narrow">
+    <h2 class="reveal">Вы и сами знаете эту цифру.</h2>
+    <p class="reveal">Она прямо сейчас в вашей аналитике: корзины созданы, чекаут начат, заказы оплачены. Разница между последними двумя — деньги, которые были в одном клике от вашего счёта.</p>
+    <p class="reveal">Вы наверняка что-то пробовали. Email-цепочку, которая попадает в «Промоакции» и остается там. Поп-ап со скидкой, который приучает клиентов бросать корзину специально. Сервис «возврата корзин» по подписке, который хочет плату за каждое сообщение и процент с выручки, которую сам же себе щедро приписывает.</p>
+    <p class="reveal">А самые горячие покупатели, которых когда-либо приводила ваша реклама — те, кто уже ввёл адрес доставки, — молча уходят.</p>
+    <p class="reveal punch">Эту дыру я и закрываю.</p>
+  </div>
+</section>
+
+<!-- ============================ КЕЙС ============================ -->
+<section id="case" class="band">
+  <div class="wrap">
+
+    <h2 class="reveal">Как один магазин забрал <span class="hl">$52,191</span>, которые почти потерял</h2>
+    <p class="client reveal">Клиент: <strong>Meamo</strong> — корейский бьюти-бренд с продажами по всему миру. Публикуется с разрешения.</p>
+
+    <div class="steps reveal">
+      <p><b>Что было.</b> Бросившие чекаут получали то, что шлют почти все магазины: одно письмо, через несколько часов, в переполненный ящик. Самые горячие покупатели — почти нулевой возврат.</p>
+      <p><b>Что я внедрил.</b> Цепочки SMS и WhatsApp на базе Klaviyo: 2–3 коротких сообщения на каждого бросившего, тайминг под уровень интента, в каждом — защищённая ссылка прямо в его заказ. Согласованные шаблоны, чистый opt-out, всё в рамках правил каналов. Без агентства и созвонов — собрал асинхронно и включил.</p>
+    </div>
+
+    <h3 class="statrow__title reveal">Итог — 90 дней</h3>
+    <div class="statrow reveal">
+      <div class="statrow__hero">
+        <div class="num statrow__big" data-count="52191" data-prefix="$">$52,191</div>
+        <p>возвращено</p>
+      </div>
+      <div class="statrow__split">
+        <div class="statrow__item">
+          <div class="num" data-count="28264" data-prefix="$">$28,264</div>
+          <p>SMS</p>
+        </div>
+        <div class="statrow__item">
+          <div class="num" data-count="23927" data-prefix="$">$23,927</div>
+          <p>WhatsApp</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="channels">
+      <article class="card channel reveal">
+        <h4>WhatsApp</h4>
+        <ul class="metrics">
+          <li><span class="num" data-count="71.4" data-decimals="1" data-suffix="%">71.4%</span> открыли</li>
+          <li><span class="num" data-count="41.7" data-decimals="1" data-suffix="%">41.7%</span> перешли</li>
+          <li><span class="num" data-count="13.1" data-decimals="1" data-suffix="%">13.1%</span> оформили заказ</li>
+        </ul>
+      </article>
+      <article class="card channel reveal">
+        <h4>SMS</h4>
+        <ul class="metrics">
+          <li><span class="num" data-count="25.2" data-decimals="1" data-suffix="%">25.2%</span> перешли</li>
+          <li><span class="num" data-count="9.0" data-decimals="1" data-suffix="%">9.0%</span> оформили заказ</li>
+          <li><span class="metrics__flat">~$25</span> возврата на получателя при среднем чеке $267</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="fineprint reveal"><em>Измерение: атрибуция Klaviyo по оформленным заказам, только выручка цепочек.</em></p>
+
+    <div class="wrap--narrow why reveal">
+      <h3>Почему несколько каналов?</h3>
+      <p>Аудитории разные. В этом магазине SMS обошёл WhatsApp — его и масштабировал. Я веду каналы параллельно, замеряю каждый отдельно и лью объём туда, где ваши клиенты реально отвечают. Я продаю возвращённую выручку, а не избранный мессенджер. Для аудитории, которая живёт в Telegram, в связку встаёт Telegram-бот — как это работает, <a class="inline-link" href="#bots">показываю ниже</a>.</p>
+    </div>
+
+    <div class="mosaic">
+
+      <figure class="shot reveal mosaic__wide">
+        <div class="frame frame--browser">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="assets/flows-90d.webp" width="1280" height="604" loading="lazy" decoding="async"
+               alt="Дашборд Klaviyo Flows Conversion: $52,191.31 суммарно по цепочкам Abandoned Checkout SMS ($28,264.16) и Abandoned Checkout WhatsApp ($23,927.15) за период с 26 апреля по 25 июля.">
+        </div>
+        <figcaption>Дашборд цепочек Klaviyo: $52,191 за 90 дней, обе цепочки в плюсе к прошлому периоду</figcaption>
+      </figure>
+
+      <figure class="shot reveal mosaic__tall">
+        <div class="frame frame--browser">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="assets/wa-details.webp" width="577" height="815" loading="lazy" decoding="async"
+               alt="Показатели WhatsApp-цепочки в Klaviyo: 71.4% открытий, 41.7% переходов, 13.1% оформленных заказов, плюс превью согласованного шаблона сообщения.">
+        </div>
+        <figcaption>Показатели WhatsApp-цепочки + сообщение, которое получает клиент</figcaption>
+      </figure>
+
+      <div class="mosaic__stack">
+
+        <figure class="shot reveal">
+          <div class="frame frame--browser">
+            <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="assets/sms-stats.webp" width="1280" height="345" loading="lazy" decoding="async"
+                 alt="Показатели SMS-цепочки в Klaviyo: 25.18% переходов, 9.01% оформленных заказов, выручка $13,645.13, средний чек $267.55, $25.08 на получателя.">
+          </div>
+          <figcaption>Показатели SMS-цепочки</figcaption>
+        </figure>
+
+        <figure class="shot reveal">
+          <div class="frame frame--plain">
+            <img src="assets/sms-phone.webp" width="685" height="536" loading="lazy" decoding="async"
+                 alt="Макет телефона с сообщением о возврате корзины: «Привет, ваш заказ всё ещё ждёт», защищённая ссылка на оформление и строка отписки.">
+          </div>
+          <figcaption>Что приходит клиенту на телефон</figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+
+    <!-- ОТЗЫВ ВИДЕО: раскрыть, когда придёт RU-видеоотзыв Meamo — убрать атрибут
+         `hidden` ниже, положить файл в assets/testimonial.mp4 и добавить постер:
+         <video ... poster="assets/testimonial-poster.webp"> -->
+    <figure class="videowrap reveal" hidden>
+      <div class="frame frame--plain videowrap__box">
+        <video controls preload="none" playsinline>
+          <source src="assets/testimonial.mp4" type="video/mp4">
+          Ваш браузер не поддерживает встроенное видео.
+        </video>
+      </div>
+      <figcaption>Видеоотзыв клиента</figcaption>
+    </figure>
+    <!-- /ОТЗЫВ ВИДЕО -->
+
+    <p class="sectioncta reveal">
+      <a class="btn btn--accent" href="#contact">Хотите такие цепочки в своём магазине? Пришлите ссылку <span aria-hidden="true">→</span></a>
+    </p>
+
+  </div>
+</section>
+
+<!-- ============================ КАК ЭТО РАБОТАЕТ ============================ -->
+<section id="how" class="band band--alt">
+  <div class="wrap">
+    <h2 class="reveal">Три шага. Ноль созвонов.</h2>
+
+    <ol class="how">
+      <li class="card reveal">
+        <span class="how__n" aria-hidden="true">1</span>
+        <h3>Пришлите ссылку на магазин.</h3>
+        <p>В Telegram. Это всё, что нужно для старта — без доступов к аналитике, без брифов, без созвона-знакомства.</p>
+      </li>
+      <li class="card reveal">
+        <span class="how__n" aria-hidden="true">2</span>
+        <h3>Я делаю заказ в вашем магазине. И бросаю корзину.</h3>
+        <p>А дальше записываю, что магазин с этим делает. Обычно: ничего — или одно запоздалое письмо. В течение 2 рабочих дней вы получаете короткое персональное видео: тест с брошенной корзиной, трение, которое я нашёл в карточках товара и чекауте, и честная математика — сколько магазин вашего масштаба теряет на этом каждый месяц. Если воронка у вас хорошо настроена — так и скажу и не буду тратить ваше время.</p>
+      </li>
+      <li class="card reveal">
+        <span class="how__n" aria-hidden="true">3</span>
+        <h3>Захотите закрыть дыру — закроем.</h3>
+        <p>Цепочки спроектированы, собраны и запущены за 7–10 дней. Всё асинхронно: вы согласовываете сообщением, я выкатываю. Цена — фикс за проект. Возможное помесячное сопровождение — обсудим после успешного запуска.</p>
+      </li>
+    </ol>
+
+    <p class="sectioncta reveal">
+      <a class="btn btn--accent" href="#contact">Начать с первого шага <span aria-hidden="true">→</span></a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================ CRO ============================ -->
+<section id="cro" class="band">
+  <div class="wrap">
+    <h2 class="reveal">Возврат корзин ловит тех, кто почти оплатил. Это — про тех, кто до корзины не дошёл.</h2>
+
+    <h3 class="crostat reveal">
+      Конверсия
+      <span class="num crostat__from" data-count="0.33" data-decimals="2" data-suffix="%">0.33%</span>
+      <span class="crostat__arrow" aria-hidden="true">→</span>
+      <span class="num crostat__to" data-count="1.05" data-decimals="2" data-suffix="%">1.05%</span>
+      за 60 дней. Продажи <span class="num crostat__to" data-count="4" data-prefix="×">×4</span>.
+    </h3>
+
+    <div class="wrap--narrow">
+      <p class="reveal">Узконишевый Shopify-магазин, сильно недооптимизированный — идеальная демонстрация. Точечные изменения в карточках товара и чекауте: убрать трение, ускорить, поставить реальное преимущество магазина туда, куда смотрит посетитель. Без «редизайна ради редизайна» и подписок на A/B-сервисы. Через шестьдесят дней конверсия утроилась.</p>
+      <p class="reveal">Прямым текстом: магазин маленький, поэтому абсолютные цифры маленькие — 4 заказа стали 18 за месяц. Я показываю конверсию, потому что этой метрике всё равно, какого размера магазин. Утроить её — значит одно и то же при 1,000 сессий и при 1,000,000: каждая доля процента конверсии — чистая маржа с трафика, за который вы уже заплатили.</p>
+    </div>
+
+    <div class="gallery gallery--pair">
+      <figure class="shot reveal">
+        <div class="frame frame--browser">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="assets/cro-before.webp" width="1011" height="463" loading="lazy" decoding="async"
+               alt="Аналитика Shopify за 1–31 марта 2024: 1,198 сессий магазина, продажи $8,159.53, 4 заказа, конверсия 0.33%.">
+        </div>
+        <figcaption>Март 2024 — до</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <div class="frame frame--browser">
+          <div class="frame__bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <img src="assets/cro-after.webp" width="1011" height="442" loading="lazy" decoding="async"
+               alt="Аналитика Shopify за 1–31 мая 2024: 1,717 сессий магазина, продажи $32,274.78, 18 заказов, конверсия 1.05%.">
+        </div>
+        <figcaption>Май 2024 — после 60 дней точечного CRO</figcaption>
+      </figure>
+    </div>
+
+    <p class="bridge reveal">Эти же принципы зашиты в каждый магазин, который я собираю, — поэтому следующий раздел не про обычную веб-разработку.</p>
+  </div>
+</section>
+
+<!-- ============================ МАГАЗИНЫ ============================ -->
+<section id="stores" class="band band--alt">
+  <div class="wrap">
+    <h2 class="reveal">Магазины, в которых оптимизация уже внутри</h2>
+    <p class="wrap--narrow lede-sm reveal">Обычно разработчик собирает вам сайт, а потом кто-то вроде меня получает деньги за то, чтобы починить его конверсию. Я убираю лишний шаг: в каждом магазине и лендинге, который я сдаю, <a class="inline-link" href="#cro">CRO-оптимизация</a> — скорость, трение на чекауте, мобильный сценарий покупки, попадание оффера в аудиторию — зашита с первой версии.</p>
+
+    <div class="stores">
+
+      <a class="card store reveal" href="https://wisdomining.com" target="_blank" rel="noopener noreferrer">
+        <span class="store__platform">Shopify</span>
+        <h3>Wisdomining</h3>
+        <p>Оборудование и комплектующие для майнинга. Магазин + ремонт в одной воронке.</p>
+        <span class="store__go">Смотреть <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="card store reveal" href="https://aichunbeauty.com" target="_blank" rel="noopener noreferrer">
+        <span class="store__platform">Shopify</span>
+        <h3>Aichun Beauty</h3>
+        <p>Бьюти-бренд. Минимализм и структура, заточенная под конверсию.</p>
+        <span class="store__go">Смотреть <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="card store reveal" href="https://rabinkovelectricsupply.com" target="_blank" rel="noopener noreferrer">
+        <span class="store__platform">Shopify</span>
+        <h3>Rabinkov Electric Supply</h3>
+        <p>Электрооборудование. Большой каталог, быстрый путь до заявки.</p>
+        <span class="store__go">Смотреть <span aria-hidden="true">→</span></span>
+      </a>
+
+      <a class="card store reveal" href="https://swishoralcare.ca" target="_blank" rel="noopener noreferrer">
+        <span class="store__platform">Webflow</span>
+        <h3>Swish Oral Care</h3>
+        <p>Стоматология. Чистый дизайн поверх продающей структуры.</p>
+        <span class="store__go">Смотреть <span aria-hidden="true">→</span></span>
+      </a>
+
+    </div>
+
+    <p class="sectioncta reveal">
+      <a class="btn btn--accent" href="#contact">Нужен магазин, который продаёт с первого дня? Напишите <span aria-hidden="true">→</span></a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================ TELEGRAM-БОТЫ ============================ -->
+<section id="bots" class="band">
+  <div class="wrap">
+    <h2 class="reveal">Telegram-боты для магазинов</h2>
+    <p class="wrap--narrow lede-sm reveal">Для аудитории, которая живёт в Telegram, я собираю ботов, которые продают и возвращают: каталог, корзина и возврат брошенных корзин — прямо в мессенджере, без ухода на сайт. Мой бот возврата приводит обратно 10–30% брошенных корзин.</p>
+
+    <div class="bots">
+
+      <figure class="botvid botvid--r916 reveal">
+        <h3>Как работает возврат брошенных корзин через Telegram</h3>
+        <div class="frame frame--plain botvid__box">
+          <video controls preload="none" playsinline
+                 poster="assets/bot-recovery-explainer.webp"
+                 aria-label="Видео: как работает возврат брошенных корзин через Telegram-бота">
+            <source src="assets/bot-recovery-explainer.mp4" type="video/mp4">
+            Ваш браузер не поддерживает встроенное видео.
+          </video>
+        </div>
+      </figure>
+
+      <figure class="botvid botvid--r12 reveal">
+        <h3>Кастомный бот магазина: каталог, корзина, заказ</h3>
+        <div class="frame frame--plain botvid__box">
+          <video controls preload="none" playsinline
+                 poster="assets/bot-catalog-demo.webp"
+                 aria-label="Видео: демонстрация кастомного Telegram-бота магазина — каталог, корзина, оформление заказа">
+            <source src="assets/bot-catalog-demo.mp4" type="video/mp4">
+            Ваш браузер не поддерживает встроенное видео.
+          </video>
+        </div>
+      </figure>
+
+    </div>
+
+    <p class="sectioncta reveal">
+      <a class="btn btn--accent" href="#contact">Нужен бот под ваш магазин? Напишите <span aria-hidden="true">→</span></a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================ ЕЩЁ В АРСЕНАЛЕ ============================ -->
+<section id="more" class="band band--alt">
+  <div class="wrap">
+    <h2 class="reveal">Ещё в арсенале</h2>
+
+    <div class="tools tools--two">
+      <article class="card reveal">
+        <h3>AI-агенты и автоматизация поддержки.</h3>
+        <p>Self-hosted хелпдеск (Chatwoot) с AI-агентом на первой линии — эффективность поддержки и удержание лидов выросли на 135%, без оплаты «за оператора» и лимитов на обращения. Работает в проде.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Кастомные плагины WooCommerce.</h3>
+        <p>Плагины под задачи конкретного магазина с большим оборотом — включая помощник при ошибках оплаты, который превращает упавшие транзакции в оформленные заказы. Протестированы, приняты штатными разработчиками клиента, работают в проде.</p>
+      </article>
+    </div>
+
+    <p class="tools__note reveal">Если это помогает магазину продавать больше или работать дешевле — скорее всего, это ко мне. Спрашивайте.</p>
+  </div>
+</section>
+
+<!-- ============================ ОБО МНЕ ============================ -->
+<section id="about" class="band">
+  <div class="wrap">
+    <h2 class="reveal">С кем вы будете работать</h2>
+
+    <div class="about">
+      <div class="about__portrait reveal">
+        <img src="assets/portrait.webp" width="534" height="751" loading="lazy" decoding="async"
+             alt="Портрет Артёма Матвеева.">
+      </div>
+
+      <div class="about__body">
+        <p class="lede-sm reveal">Я Артём Матвеев. Я чиню выручку e-commerce: возврат брошенных корзин, конверсию и сами магазины.</p>
+
+        <ul class="about__list">
+          <li class="reveal"><strong>7+ лет в росте e-commerce</strong> — оптимизация конверсии, продающий копирайтинг и автоматизации в одной голове. В агентствах это три разных человека — на стыках между ними результат и теряется.</li>
+          <li class="reveal"><strong>Рабочие платформы:</strong> Shopify, WooCommerce, WordPress, Webflow · Klaviyo, WhatsApp и Telegram API, Chatwoot · Google Analytics, Hotjar.</li>
+          <li class="reveal"><strong>Начинал с продающего копирайтинга</strong> (200+ проектов) и только потом ушёл в техническую часть — поэтому мои страницы и сообщения продают, а не просто работают.</li>
+          <li class="reveal"><strong>Языки:</strong> русский, английский (C2), немецкий (B2) — веду проекты и на западных рынках.</li>
+        </ul>
+
+        <p class="about__how reveal"><strong>Как я работаю:</strong> полностью асинхронно. Вы пишете — я выкатываю, результат видите в собственных дашбордах. Без созвонов, без еженедельных статусов, без счетов за встречи.</p>
+
+        <!-- ОТЗЫВ T2: раскрыть, когда придёт материал — убрать атрибут `hidden` ниже. -->
+        <blockquote class="quote" hidden>
+          <p>Текст отзыва.</p>
+          <cite><b>Имя клиента</b><span>Должность, компания</span></cite>
+        </blockquote>
+        <!-- /ОТЗЫВ T2 -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ КОНТАКТ ============================ -->
+<section id="contact" class="band band--alt contact">
+  <div class="wrap wrap--narrow">
+
+    <h2 class="reveal">Узнайте, сколько денег теряет ваш магазин</h2>
+    <p class="lede reveal">Пришлите ссылку на магазин. В течение 2 рабочих дней вы получите короткое персональное видео: что произошло, когда я бросил корзину у вас, где течёт и сколько стоит это закрыть. Бесплатно, асинхронно, без созвонов.</p>
+
+    <!-- ОТЗЫВ T3: раскрыть, когда придёт материал — убрать атрибут `hidden` ниже. -->
+    <p class="quote quote--line" hidden>
+      <em>«Однострочный отзыв.»</em> <b>Имя клиента</b>, компания
+    </p>
+    <!-- /ОТЗЫВ T3 -->
+
+    <div class="contact__cta reveal">
+      <a class="btn btn--accent btn--lg" href="https://t.me/tantalizingstarclusterfuck" target="_blank" rel="noopener noreferrer">Написать в Telegram <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p class="footer__mark">Артём Матвеев — возврат брошенных корзин · CRO · магазины, которые продают</p>
+    <nav class="footer__nav" aria-label="Подвал">
+      <a href="#recovery">Главная</a>
+      <a href="#case">Кейс</a>
+      <a href="#how">Как это работает</a>
+      <a href="#cro">CRO</a>
+      <a href="#stores">Магазины</a>
+      <a href="#bots">Боты</a>
+      <a href="#more">Ещё</a>
+      <a href="#about">Обо мне</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
