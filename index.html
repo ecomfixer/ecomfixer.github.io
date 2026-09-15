@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title data-i18n="meta.title">Shopify developer — stores, CRO and checkout recovery | ecomfixer</title>
+<meta name="description" content="Shopify store development with conversion built in from version one: speed, checkout and the mobile buying path. Plus CRO for existing stores and abandoned checkout recovery." data-i18n-attr="content:meta.description">
+
+<!-- Base URL is https://ecomfixer.github.io/. If the site deploys elsewhere, change it
+     here, in the JSON-LD below, and in meta.url in js/i18n.js (both dictionaries). -->
+<link rel="canonical" href="https://ecomfixer.github.io/" data-i18n-attr="href:meta.url">
+<link rel="alternate" hreflang="en" href="https://ecomfixer.github.io/">
+<link rel="alternate" hreflang="ru" href="https://ecomfixer.github.io/?lang=ru">
+<link rel="alternate" hreflang="x-default" href="https://ecomfixer.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ecomfixer">
+<meta property="og:url" content="https://ecomfixer.github.io/" data-i18n-attr="content:meta.url">
+<meta property="og:locale" content="en_US" data-i18n-attr="content:meta.ogLocale">
+<meta property="og:locale:alternate" content="ru_RU" data-i18n-attr="content:meta.ogLocaleAlt">
+<meta property="og:title" content="Shopify developer — stores, CRO and checkout recovery" data-i18n-attr="content:meta.ogTitle">
+<meta property="og:description" content="Shopify stores built to sell from day one: 20+ stores shipped. Plus CRO that took one store from 0.33% to 1.05% conversion, and checkout recovery flows that brought back $52,191 in 90 days." data-i18n-attr="content:meta.ogDescription">
+<!-- TODO: og.png is the old recovery-led card, reused for now. Replace with a
+     Shopify-development card (1200×630) at the same path. -->
+<meta property="og:image" content="https://ecomfixer.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shopify developer — stores, CRO and checkout recovery" data-i18n-attr="content:meta.ogTitle">
+<meta name="twitter:description" content="Shopify stores built to sell from day one: 20+ stores shipped. Plus CRO that took one store from 0.33% to 1.05% conversion, and checkout recovery flows that brought back $52,191 in 90 days." data-i18n-attr="content:meta.ogDescription">
+<meta name="twitter:image" content="https://ecomfixer.github.io/assets/og.png">
+
+<meta name="theme-color" content="#0B0D0F">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Runs before first paint. Adds .js (gates reveal start states and collapsed
+     accordions) and, for a stored/linked RU visit, hides the body until i18n.js
+     has swapped the text. The load handler is the safety net: if main.js never
+     ran, .js comes off and everything is visible and expanded. -->
+<script>
+(function (h) {
+  h.classList.add('js');
+  try {
+    var m = location.search.match(/[?&]lang=(en|ru)(?:&|$)/);
+    var lang = m ? m[1] : localStorage.getItem('ecomfixer_lang');
+    if (lang === 'ru') h.classList.add('i18n-wait');
+  } catch (e) {}
+  addEventListener('load', function () {
+    if (!window.__efReady) h.classList.remove('js');
+    h.classList.remove('i18n-wait');
+  });
+})(document.documentElement);
+</script>
+<script src="js/i18n.js" defer></script>
+<script src="js/main.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://ecomfixer.github.io/#person",
+      "name": "Artem Matveev",
+      "jobTitle": "Shopify Developer",
+      "url": "https://ecomfixer.github.io/",
+      "image": "https://ecomfixer.github.io/assets/portrait.webp",
+      "sameAs": ["https://t.me/tantalizingstarclusterfuck"],
+      "worksFor": { "@id": "https://ecomfixer.github.io/#business" },
+      "knowsAbout": ["Shopify", "Liquid", "Shopify theme development", "Conversion rate optimisation", "Klaviyo", "Abandoned checkout recovery", "Webflow", "WooCommerce"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://ecomfixer.github.io/#business",
+      "name": "ecomfixer",
+      "url": "https://ecomfixer.github.io/",
+      "image": "https://ecomfixer.github.io/assets/og.png",
+      "description": "Shopify store development, conversion rate optimisation and abandoned checkout recovery.",
+      "founder": { "@id": "https://ecomfixer.github.io/#person" },
+      "areaServed": "Worldwide",
+      "knowsAbout": ["Shopify", "Liquid", "Conversion rate optimisation", "Klaviyo"]
+    },
+    { "@type": "WebSite", "name": "Wisdomining", "url": "https://wisdomining.com", "creator": { "@id": "https://ecomfixer.github.io/#person" } },
+    { "@type": "WebSite", "name": "Aichun Beauty", "url": "https://aichunbeauty.com", "creator": { "@id": "https://ecomfixer.github.io/#person" } },
+    { "@type": "WebSite", "name": "Rabinkov Electric Supply", "url": "https://rabinkovelectricsupply.com", "creator": { "@id": "https://ecomfixer.github.io/#person" } },
+    { "@type": "WebSite", "name": "Swish Oral Care", "url": "https://swishoralcare.ca", "creator": { "@id": "https://ecomfixer.github.io/#person" } }
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="scroll-sentinel" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main" data-i18n="common.skip">Skip to content</a>
+
+<!-- ============================ HEADER ============================ -->
+<header class="header">
+  <div class="header__bg" aria-hidden="true"></div>
+  <div class="wrap header__inner">
+
+    <a class="wordmark" href="#top" aria-label="ecomfixer — back to top" data-i18n-attr="aria-label:nav.home"><span class="wordmark__mark" aria-hidden="true"></span>ecomfixer</a>
+
+    <nav class="nav" aria-label="Sections" data-i18n-attr="aria-label:nav.label">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a class="nav__link" href="#approach" data-i18n="nav.approach">Approach</a></li>
+        <li><a class="nav__link" href="#cro" data-i18n="nav.cro">CRO</a></li>
+        <li><a class="nav__link" href="#recovery" data-i18n="nav.recovery">Recovery</a></li>
+        <li><a class="nav__link" href="#about" data-i18n="nav.about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <button class="lang js-lang" type="button" aria-pressed="false" aria-label="Switch to Russian" data-i18n-attr="aria-label:lang.aria">
+        <span class="lang__opt is-active" data-lang="en">EN</span><span aria-hidden="true">/</span><span class="lang__opt" data-lang="ru">RU</span>
+      </button>
+      <a class="btn btn--accent btn--sm header__cta" href="#contact" data-i18n="nav.cta">Start a project</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menu" data-i18n-attr="aria-label:nav.menu">
+        <span class="burger__lines" aria-hidden="true"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Sibling of <header>, not a child: the header's backdrop-filter would
+     otherwise become the containing block for this fixed overlay. -->
+<div class="menu" id="menu" hidden>
+  <nav aria-label="Sections" data-i18n-attr="aria-label:nav.label">
+    <ul class="menu__list">
+      <li class="menu__item"><a class="menu__link" href="#work"><span class="menu__idx" aria-hidden="true">01</span><span data-i18n="nav.work">Work</span></a></li>
+      <li class="menu__item"><a class="menu__link" href="#approach"><span class="menu__idx" aria-hidden="true">02</span><span data-i18n="nav.approach">Approach</span></a></li>
+      <li class="menu__item"><a class="menu__link" href="#cro"><span class="menu__idx" aria-hidden="true">03</span><span data-i18n="nav.cro">CRO</span></a></li>
+      <li class="menu__item"><a class="menu__link" href="#recovery"><span class="menu__idx" aria-hidden="true">04</span><span data-i18n="nav.recovery">Recovery</span></a></li>
+      <li class="menu__item"><a class="menu__link" href="#about"><span class="menu__idx" aria-hidden="true">05</span><span data-i18n="nav.about">About</span></a></li>
+      <li class="menu__item"><a class="btn btn--accent btn--lg menu__cta" href="#contact" data-i18n="nav.cta">Start a project</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main id="main" tabindex="-1">
+
+<!-- ============================ 1. HERO ============================ -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap">
+
+    <p class="eyebrow eyebrow--accent" data-i18n="hero.eyebrow">Shopify development · CRO · Retention</p>
+
+    <h1 class="hero__title" id="hero-title" data-i18n="hero.title">Shopify stores built by the person <em>who gets paid to fix conversion.</em></h1>
+
+    <p class="hero__sub" data-i18n="hero.sub">Most developers hand you a store, then someone like me gets paid to fix its conversion rate. I skip the extra step. Speed, checkout friction, and the mobile buying path are handled in version one.</p>
+
+    <div class="hero__cta">
+      <a class="btn btn--accent btn--lg" href="#work"><span data-i18n="hero.ctaPrimary">See the stores</span> <span aria-hidden="true">↓</span></a>
+      <a class="link" href="#contact"><span data-i18n="hero.ctaSecondary">Get a quote for your build</span> <span aria-hidden="true">→</span></a>
+    </div>
+
+    <ul class="proof" aria-label="Track record" data-i18n-attr="aria-label:hero.proofLabel">
+      <li class="proof__cell">
+        <span class="proof__num" data-count>20+</span>
+        <span class="proof__label" data-i18n="hero.proof1">Shopify stores built</span>
+      </li>
+      <li class="proof__cell reveal reveal--fade">
+        <span class="proof__num">0.33% <span class="proof__arrow">→</span> 1.05%</span>
+        <span class="proof__label" data-i18n="hero.proof2">conversion rate, 60 days</span>
+      </li>
+      <li class="proof__cell">
+        <span class="proof__num" data-count>$52,191</span>
+        <span class="proof__label" data-i18n="hero.proof3">recovered in 90 days</span>
+      </li>
+      <li class="proof__cell">
+        <span class="proof__num" data-count>7+</span>
+        <span class="proof__label" data-i18n="hero.proof4">years in e-commerce growth</span>
+      </li>
+    </ul>
+
+  </div>
+</section>
+
+<!-- ============================ 2. STORES ============================ -->
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+
+    <header class="section__head" data-stagger>
+      <p class="eyebrow reveal" data-i18n="work.eyebrow">Selected work</p>
+      <h2 class="section__title reveal" id="work-title" data-i18n="work.title">Stores with the optimisation already inside.</h2>
+      <p class="section__intro reveal" data-i18n="work.intro">Every store I ship has CRO built in from the first commit: speed, checkout friction, the mobile buying path.</p>
+    </header>
+
+    <!-- To add a store: copy one .reveal block below, change the URL (x2), image,
+         id suffixes (store-*, acc-*), and add the matching work.<slug>.* keys to
+         both dictionaries in js/i18n.js. See README. -->
+    <div class="stores" data-stagger>
+
+      <!-- Wisdomining -->
+      <div class="reveal">
+        <article class="store" aria-labelledby="store-wisdomining">
+          <a class="store__frame" href="https://wisdomining.com" target="_blank" rel="noopener" aria-label="Visit Wisdomining, opens in a new tab" data-i18n-attr="aria-label:work.wisdomining.aria">
+            <span class="store__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="store__shot"><img src="assets/stores/wisdomining%20desktop.webp" width="1894" height="932" loading="lazy" decoding="async" alt="Wisdomining homepage: navigation for mining equipment, hosting, repair and firmware above a dark hero banner reading “WisdoMining: Repair Center &amp; Mining Equipment”." data-i18n-attr="alt:work.wisdomining.alt"></span>
+          </a>
+          <div class="store__body">
+            <span class="chip chip--shopify">Shopify</span>
+            <h3 class="store__name" id="store-wisdomining">Wisdomining</h3>
+            <p class="store__desc" data-i18n="work.wisdomining.desc">Mining hardware and parts. Store and repair service in one funnel.</p>
+            <ul class="chips" aria-label="Scope" data-i18n-attr="aria-label:work.scope">
+              <li class="chip" data-i18n="work.chip.sections">Custom sections</li>
+              <li class="chip" data-i18n="work.chip.mobileFirst">Mobile-first</li>
+              <li class="chip" data-i18n="work.chip.catalogueRepair">Catalogue + repair</li>
+            </ul>
+            <div class="store__foot">
+              <a class="store__visit" href="https://wisdomining.com" target="_blank" rel="noopener" aria-describedby="store-wisdomining"><span data-i18n="work.visit">Visit live site</span> <span class="store__arrow" aria-hidden="true">↗</span><span class="sr-only" data-i18n="common.newTab">(opens in a new tab)</span></a>
+              <button class="store__toggle" type="button" aria-expanded="false" aria-controls="acc-wisdomining" aria-describedby="store-wisdomining"><span data-i18n="work.toggle">What I built</span><span class="chev" aria-hidden="true"></span></button>
+            </div>
+            <div class="acc" id="acc-wisdomining">
+              <div class="acc__inner">
+                <dl class="acc__list">
+                  <div class="acc__item"><dt data-i18n="work.brief">Brief</dt><dd data-i18n="work.wisdomining.brief">Wisdomining sells mining hardware and parts, and it also repairs machines. That puts two very different visitors on the same storefront: one wants to buy a unit, the other has a broken one and wants to know whether it can be fixed and what happens next. The job was to serve both from one store, without splitting the audience across two sites.</dd></div>
+                  <div class="acc__item"><dt data-i18n="work.built">What I built</dt><dd data-i18n="work.wisdomining.built">A custom Shopify theme where both intents are visible from the first screen. Equipment and repair sit side by side in the main navigation, so neither visitor has to hunt for their path. Product pages lead with the specifications hardware buyers check before committing. The repair service gets its own pages, with a plain explanation of the process and a direct way to start.</dd></div>
+                  <div class="acc__item"><dt data-i18n="work.tech">Technical notes</dt><dd data-i18n="work.wisdomining.tech">Custom Liquid sections instead of a page builder, so new landing pages are assembled from existing blocks. Specifications are stored in metafields and edited in the Shopify admin, not in templates. The catalogue is organised by equipment type, which keeps technical products findable as the range grows. Built mobile-first, with speed and layout stability checked before handover.</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Aichun Beauty -->
+      <div class="reveal">
+        <article class="store" aria-labelledby="store-aichun">
+          <a class="store__frame" href="https://aichunbeauty.com" target="_blank" rel="noopener" aria-label="Visit Aichun Beauty, opens in a new tab" data-i18n-attr="aria-label:work.aichun.aria">
+            <span class="store__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="store__shot"><img src="assets/stores/aichun%20beauty%20desktop.webp" width="1898" height="879" loading="lazy" decoding="async" alt="Aichun Beauty homepage: category menu for skincare, body, sunscreen, makeup and hair above a spa-style hero banner for the Moisturizing Collection." data-i18n-attr="alt:work.aichun.alt"></span>
+          </a>
+          <div class="store__body">
+            <span class="chip chip--shopify">Shopify</span>
+            <h3 class="store__name" id="store-aichun">Aichun Beauty</h3>
+            <p class="store__desc" data-i18n="work.aichun.desc">Beauty brand. Minimal structure, built around conversion.</p>
+            <ul class="chips" aria-label="Scope" data-i18n-attr="aria-label:work.scope">
+              <li class="chip" data-i18n="work.chip.pdp">Conversion-first PDP</li>
+              <li class="chip" data-i18n="work.chip.mobileFirst">Mobile-first</li>
+              <li class="chip" data-i18n="work.chip.brandSystem">Brand system</li>
+            </ul>
+            <div class="store__foot">
+              <a class="store__visit" href="https://aichunbeauty.com" target="_blank" rel="noopener" aria-describedby="store-aichun"><span data-i18n="work.visit">Visit live site</span> <span class="store__arrow" aria-hidden="true">↗</span><span class="sr-only" data-i18n="common.newTab">(opens in a new tab)</span></a>
+              <button class="store__toggle" type="button" aria-expanded="false" aria-controls="acc-aichun" aria-describedby="store-aichun"><span data-i18n="work.toggle">What I built</span><span class="chev" aria-hidden="true"></span></button>
+            </div>
+            <div class="acc" id="acc-aichun">
+              <div class="acc__inner">
+                <dl class="acc__list">
+                  <div class="acc__item"><dt data-i18n="work.brief">Brief</dt><dd data-i18n="work.aichun.brief">A beauty brand with a range that runs from skincare to hair and oral care, and a wish for a clean, minimal store. The risk with minimal design is that it strips out what people need before they buy: what the product does, how to use it, and why to trust it. The brief was to keep the restraint and still give every product page a structure that sells.</dd></div>
+                  <div class="acc__item"><dt data-i18n="work.built">What I built</dt><dd data-i18n="work.aichun.built">A product page that answers a buyer's questions in the order they ask them: what it is, what it does, how to use it, what's in it. Product images follow a set sequence, so every page tells the story the same way across the catalogue. A small brand system for type, spacing and colour keeps new pages consistent without a designer on call.</dd></div>
+                  <div class="acc__item"><dt data-i18n="work.tech">Technical notes</dt><dd data-i18n="work.aichun.tech">Mobile layout came first: price, options and the add-to-cart button were designed for a phone screen before anything else. Gallery images are sized and lazy-loaded so they don't slow the first screen. Express checkout sits next to the main button. Product details are driven by metafields, so the team updates content without touching code.</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Rabinkov Electric Supply -->
+      <div class="reveal">
+        <article class="store" aria-labelledby="store-rabinkov">
+          <a class="store__frame" href="https://rabinkovelectricsupply.com" target="_blank" rel="noopener" aria-label="Visit Rabinkov Electric Supply, opens in a new tab" data-i18n-attr="aria-label:work.rabinkov.aria">
+            <span class="store__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="store__shot"><img src="assets/stores/rabinkov%20desktop.webp" width="1897" height="926" loading="lazy" decoding="async" alt="Rabinkov Electric Supply homepage: a full-width product search, a menu of brands and categories such as Siemens, Eaton, Square D, breakers and switchgear, and a hero banner reading “Siemens, Eaton, Square D and more”." data-i18n-attr="alt:work.rabinkov.alt"></span>
+          </a>
+          <div class="store__body">
+            <span class="chip chip--shopify">Shopify</span>
+            <h3 class="store__name" id="store-rabinkov">Rabinkov Electric Supply</h3>
+            <p class="store__desc" data-i18n="work.rabinkov.desc">Electrical supply. Large catalogue, short path to enquiry.</p>
+            <ul class="chips" aria-label="Scope" data-i18n-attr="aria-label:work.scope">
+              <li class="chip" data-i18n="work.chip.catalogue">Catalogue architecture</li>
+              <li class="chip" data-i18n="work.chip.search">Filtering &amp; search</li>
+              <li class="chip" data-i18n="work.chip.quotes">Quote requests</li>
+            </ul>
+            <div class="store__foot">
+              <a class="store__visit" href="https://rabinkovelectricsupply.com" target="_blank" rel="noopener" aria-describedby="store-rabinkov"><span data-i18n="work.visit">Visit live site</span> <span class="store__arrow" aria-hidden="true">↗</span><span class="sr-only" data-i18n="common.newTab">(opens in a new tab)</span></a>
+              <button class="store__toggle" type="button" aria-expanded="false" aria-controls="acc-rabinkov" aria-describedby="store-rabinkov"><span data-i18n="work.toggle">What I built</span><span class="chev" aria-hidden="true"></span></button>
+            </div>
+            <div class="acc" id="acc-rabinkov">
+              <div class="acc__inner">
+                <dl class="acc__list">
+                  <div class="acc__item"><dt data-i18n="work.brief">Brief</dt><dd data-i18n="work.rabinkov.brief">An electrical supply business with thousands of SKUs and mostly trade buyers. These buyers usually know what they need. They want to find the right breaker or panel, confirm the specification and get a price, often for a quantity or a project rather than a single retail checkout. The store had to make a big catalogue easy to move through and turn a found product into an enquiry quickly.</dd></div>
+                  <div class="acc__item"><dt data-i18n="work.built">What I built</dt><dd data-i18n="work.rabinkov.built">A catalogue structure that follows how buyers look for parts: by brand and by product type, both reachable from the main menu. Search sits at the centre of the header, because many visitors arrive knowing exactly what to type. Collection filters narrow a long list down to the attributes that matter. Product pages carry a quote request, so a buyer can ask for pricing without leaving the product.</dd></div>
+                  <div class="acc__item"><dt data-i18n="work.tech">Technical notes</dt><dd data-i18n="work.rabinkov.tech">Filters run on product attributes held in the store data, so new filter values come from the admin as the range grows, not from theme edits. Collection pages stay light enough to load fast with long product lists. The quote request carries the product with it, so the reply doesn't start with a clarifying question. Mobile-first, for buyers ordering from a job site.</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Swish Oral Care -->
+      <div class="reveal">
+        <article class="store" aria-labelledby="store-swish">
+          <a class="store__frame" href="https://swishoralcare.ca" target="_blank" rel="noopener" aria-label="Visit Swish Oral Care, opens in a new tab" data-i18n-attr="aria-label:work.swish.aria">
+            <span class="store__bar" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="store__shot"><img src="assets/stores/swish%20desktop.webp" width="1898" height="930" loading="lazy" decoding="async" alt="Swish Oral Care homepage: the headline “Where oral care meets self-care”, a Book Now button and a photo of the clinic interior." data-i18n-attr="alt:work.swish.alt"></span>
+          </a>
+          <div class="store__body">
+            <span class="chip chip--webflow">Webflow</span>
+            <h3 class="store__name" id="store-swish">Swish Oral Care</h3>
+            <p class="store__desc" data-i18n="work.swish.desc">Dental care. Clean design over a selling structure.</p>
+            <ul class="chips" aria-label="Scope" data-i18n-attr="aria-label:work.scope">
+              <li class="chip" data-i18n="work.chip.webflow">Webflow build</li>
+              <li class="chip" data-i18n="work.chip.landing">Landing structure</li>
+              <li class="chip" data-i18n="work.chip.copy">Conversion copy</li>
+            </ul>
+            <div class="store__foot">
+              <a class="store__visit" href="https://swishoralcare.ca" target="_blank" rel="noopener" aria-describedby="store-swish"><span data-i18n="work.visit">Visit live site</span> <span class="store__arrow" aria-hidden="true">↗</span><span class="sr-only" data-i18n="common.newTab">(opens in a new tab)</span></a>
+              <button class="store__toggle" type="button" aria-expanded="false" aria-controls="acc-swish" aria-describedby="store-swish"><span data-i18n="work.toggle">What I built</span><span class="chev" aria-hidden="true"></span></button>
+            </div>
+            <div class="acc" id="acc-swish">
+              <div class="acc__inner">
+                <dl class="acc__list">
+                  <div class="acc__item"><dt data-i18n="work.brief">Brief</dt><dd data-i18n="work.swish.brief">Swish Oral Care runs modern dental clinics across several locations. The website doesn't sell products. Its job is to explain what makes the clinic different, reassure people who don't enjoy seeing a dentist, and get them to book. The brand needed a warm, clean look, with a page structure that moves a visitor from first impression to booking without friction.</dd></div>
+                  <div class="acc__item"><dt data-i18n="work.built">What I built</dt><dd data-i18n="work.swish.built">A Webflow site built on a landing structure: the offer and a booking button on the first screen, then services, locations and the reasons to choose the clinic, with the call to book repeated where decisions get made. I wrote the conversion copy alongside the layout, so the message and the page were designed together instead of text being poured into a finished template.</dd></div>
+                  <div class="acc__item"><dt data-i18n="work.tech">Technical notes</dt><dd data-i18n="work.swish.tech">This one is Webflow, not Shopify, and that was deliberate. A clinic books appointments; it doesn't need a product catalogue, a cart or a checkout. Webflow gave full control over the design, and the clinic's team edits pages and posts in the visual editor without a developer. Paying for commerce features they would never use made no sense.</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <p class="section__cta reveal">
+      <a class="btn btn--ghost" href="#contact"><span data-i18n="work.cta">Need a store that sells from day one? Get in touch</span> <span aria-hidden="true">→</span></a>
+    </p>
+
+  </div>
+</section>
+
+<!-- ============================ 3. WHAT'S INCLUDED ============================ -->
+<section class="section" id="approach" aria-labelledby="approach-title">
+  <div class="wrap">
+
+    <header class="section__head" data-stagger>
+      <p class="eyebrow reveal" data-i18n="approach.eyebrow">What's included</p>
+      <h2 class="section__title reveal" id="approach-title" data-i18n="approach.title">Every build ships with the parts most developers leave out.</h2>
+    </header>
+
+    <ol class="features" data-stagger>
+      <li class="feature reveal">
+        <span class="feature__idx" aria-hidden="true">01</span>
+        <h3 class="feature__title" data-i18n="approach.1.title">Liquid theme development</h3>
+        <p class="feature__body" data-i18n="approach.1.body">Custom sections written in Liquid for your products. No page builder layered on top, no unused code shipped to every visitor.</p>
+      </li>
+      <li class="feature reveal">
+        <span class="feature__idx" aria-hidden="true">02</span>
+        <h3 class="feature__title" data-i18n="approach.2.title">Metafield-driven content</h3>
+        <p class="feature__body" data-i18n="approach.2.body">Specs, FAQs and product details live in metafields. You edit them in the Shopify admin, and the templates stay untouched.</p>
+      </li>
+      <li class="feature reveal">
+        <span class="feature__idx" aria-hidden="true">03</span>
+        <h3 class="feature__title" data-i18n="approach.3.title">Speed budget</h3>
+        <p class="feature__body" data-i18n="approach.3.body">LCP and CLS are measured on real product pages before handover. If a change breaks the budget, it doesn't ship.</p>
+      </li>
+      <li class="feature reveal">
+        <span class="feature__idx" aria-hidden="true">04</span>
+        <h3 class="feature__title" data-i18n="approach.4.title">Mobile-first product pages</h3>
+        <p class="feature__body" data-i18n="approach.4.body">Most of the buying happens on a phone, so product pages are designed at phone width first. Desktop is the adaptation.</p>
+      </li>
+      <li class="feature reveal">
+        <span class="feature__idx" aria-hidden="true">05</span>
+        <h3 class="feature__title" data-i18n="approach.5.title">Express checkout</h3>
+        <p class="feature__body" data-i18n="approach.5.body">Shop Pay, Apple Pay and Google Pay, configured and tested on real devices. Fewer fields between the product and the payment.</p>
+      </li>
+      <li class="feature reveal">
+        <span class="feature__idx" aria-hidden="true">06</span>
+        <h3 class="feature__title" data-i18n="approach.6.title">A deliberate app stack</h3>
+        <p class="feature__body" data-i18n="approach.6.body">Every app has to earn its place. Anything that duplicates the theme or slows it down is replaced or removed before launch.</p>
+      </li>
+      <li class="feature reveal">
+        <span class="feature__idx" aria-hidden="true">07</span>
+        <h3 class="feature__title" data-i18n="approach.7.title">Analytics and events</h3>
+        <p class="feature__body" data-i18n="approach.7.body">GA4 and conversion tracking are set up and checked with test orders, so your dashboard matches what actually happened.</p>
+      </li>
+      <li class="feature reveal">
+        <span class="feature__idx" aria-hidden="true">08</span>
+        <h3 class="feature__title" data-i18n="approach.8.title">Handover documentation</h3>
+        <p class="feature__body" data-i18n="approach.8.body">A written guide to the theme, the sections and the apps. You own all of it, and any developer can pick it up after me.</p>
+      </li>
+    </ol>
+
+  </div>
+</section>
+
+<!-- ============================ 4. CRO ============================ -->
+<section class="section" id="cro" aria-labelledby="cro-title">
+  <div class="wrap">
+
+    <header class="section__head" data-stagger>
+      <p class="eyebrow reveal" data-i18n="cro.eyebrow">Conversion rate optimisation</p>
+      <h2 class="section__title reveal" id="cro-title" data-i18n="cro.title"><span class="mono">0.33% → 1.05%</span> in 60 days. Sales <span class="mono">×4</span>.</h2>
+    </header>
+
+    <div class="prose" data-stagger>
+      <p class="reveal" data-i18n="cro.p1">An ultra-niche Shopify store, badly under-optimised, which made it the perfect demonstration. Targeted changes to product pages and checkout: friction out, speed up, the store's actual selling point put where visitors look. No redesign theatre, no A/B-testing subscription. Sixty days later, conversion had tripled.</p>
+      <p class="reveal" data-i18n="cro.p2">Straight talk: this is a small store, so the raw numbers are small. 4 orders became 18 in a month. I show the conversion rate because it's the metric that doesn't care about store size. Tripling it means the same thing at 1,000 sessions or 1,000,000: every point of conversion is pure margin on traffic you already paid for.</p>
+    </div>
+
+    <div class="compare" data-stagger>
+      <figure class="panel panel--before reveal">
+        <p class="panel__label" data-i18n="cro.before.label">March 2024 — before</p>
+        <div class="panel__img">
+          <img src="assets/cro-before.webp" width="1011" height="463" loading="lazy" decoding="async" alt="Shopify analytics for March 1–31, 2024: 1,198 online store sessions, $8,159.53 total sales, 4 total orders, 0.33% conversion rate." data-i18n-attr="alt:cro.before.alt">
+        </div>
+        <figcaption class="panel__caption" data-i18n="cro.before.caption">1,198 sessions · 4 orders · 0.33% conversion</figcaption>
+      </figure>
+      <figure class="panel panel--after reveal">
+        <p class="panel__label" data-i18n="cro.after.label">May 2024 — after</p>
+        <div class="panel__img">
+          <img src="assets/cro-after.webp" width="1011" height="442" loading="lazy" decoding="async" alt="Shopify analytics for May 1–31, 2024: 1,717 online store sessions, $32,274.78 total sales, 18 total orders, 1.05% conversion rate." data-i18n-attr="alt:cro.after.alt">
+        </div>
+        <figcaption class="panel__caption" data-i18n="cro.after.caption">1,717 sessions · 18 orders · 1.05% conversion</figcaption>
+      </figure>
+    </div>
+
+    <div class="changes">
+      <h3 class="changes__title reveal" data-i18n="cro.changes.title">What I actually change</h3>
+      <ol class="changes__list" data-stagger>
+        <li class="changes__item reveal"><span class="changes__idx" aria-hidden="true">01</span><span data-i18n="cro.changes.1"><strong>Product page structure:</strong> the selling point where visitors actually look.</span></li>
+        <li class="changes__item reveal"><span class="changes__idx" aria-hidden="true">02</span><span data-i18n="cro.changes.2"><strong>Checkout friction:</strong> fewer fields, fewer surprises, fewer exits.</span></li>
+        <li class="changes__item reveal"><span class="changes__idx" aria-hidden="true">03</span><span data-i18n="cro.changes.3"><strong>Page speed:</strong> the images, apps and scripts slowing the first screen.</span></li>
+        <li class="changes__item reveal"><span class="changes__idx" aria-hidden="true">04</span><span data-i18n="cro.changes.4"><strong>Mobile layout:</strong> price, options and the buy button within thumb reach.</span></li>
+        <li class="changes__item reveal"><span class="changes__idx" aria-hidden="true">05</span><span data-i18n="cro.changes.5"><strong>Proof placement:</strong> reviews and guarantees next to the decision, not in the footer.</span></li>
+        <li class="changes__item reveal"><span class="changes__idx" aria-hidden="true">06</span><span data-i18n="cro.changes.6"><strong>Offer clarity:</strong> what it is, what it costs and when it arrives, on the first screen.</span></li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ 5. RECOVERY ============================ -->
+<section class="section" id="recovery" aria-labelledby="recovery-title">
+  <div class="wrap">
+
+    <header class="section__head" data-stagger>
+      <p class="eyebrow reveal" data-i18n="recovery.eyebrow">Retention</p>
+      <h2 class="section__title reveal" id="recovery-title" data-i18n="recovery.title"><span class="mono">$52,191</span> recovered in 90 days, without extra ad spend.</h2>
+    </header>
+
+    <div class="prose" data-stagger>
+      <p class="reveal" data-i18n="recovery.client">Client: <strong>Meamo</strong>, a Korean beauty brand selling internationally. Published with permission.</p>
+      <p class="reveal" data-i18n="recovery.before"><strong>Before.</strong> Checkout abandoners got what most stores send: one email, hours later, into a crowded inbox. High-intent buyers, near-zero recovery.</p>
+      <p class="reveal" data-i18n="recovery.built"><strong>What I built.</strong> Klaviyo SMS and WhatsApp flows: 2–3 short messages per abandoner, timed to intent, each with a secure link straight back to their waiting order. Approved templates, clean opt-out, fully compliant. Built async and switched on.</p>
+    </div>
+
+    <div class="bignum reveal">
+      <span class="bignum__value" data-count>$52,191</span>
+      <span class="bignum__label" data-i18n="recovery.bigLabel">Recovered · 90 days · SMS + WhatsApp</span>
+    </div>
+
+    <div class="channels" data-stagger>
+      <article class="channel reveal">
+        <h3 class="channel__name">WhatsApp</h3>
+        <ul class="metrics">
+          <li class="metric"><span class="metric__num">71.4%</span><span class="metric__label" data-i18n="recovery.opened">opened</span></li>
+          <li class="metric"><span class="metric__num">41.7%</span><span class="metric__label" data-i18n="recovery.clicked">clicked</span></li>
+          <li class="metric"><span class="metric__num">13.1%</span><span class="metric__label" data-i18n="recovery.ordered">placed an order</span></li>
+        </ul>
+      </article>
+      <article class="channel reveal">
+        <h3 class="channel__name">SMS</h3>
+        <ul class="metrics">
+          <li class="metric"><span class="metric__num">25.2%</span><span class="metric__label" data-i18n="recovery.clicked">clicked</span></li>
+          <li class="metric"><span class="metric__num">9.0%</span><span class="metric__label" data-i18n="recovery.ordered">placed an order</span></li>
+          <li class="metric"><span class="metric__num">~$25</span><span class="metric__label" data-i18n="recovery.perRecipient">per recipient at a $267 average order</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="footnote reveal" data-i18n="recovery.footnote">Measurement: Klaviyo placed-order attribution, flow revenue only.</p>
+
+    <!-- Evidence mosaic, same structure as the original case study: the flows
+         dashboard full width, then WhatsApp details beside a stacked column of
+         SMS stats and the phone mockup, which locks to the WhatsApp height. -->
+    <div class="mosaic">
+      <figure class="shot mosaic__wide reveal">
+        <div class="shot__frame">
+          <img src="assets/flows-90d.webp" width="1280" height="604" loading="lazy" decoding="async" alt="Klaviyo Flows Conversion dashboard showing $52,191.31 total across Abandoned Checkout SMS ($28,264.16) and Abandoned Checkout WhatsApp ($23,927.15) for April 26 to July 25." data-i18n-attr="alt:recovery.flows.alt">
+        </div>
+        <figcaption data-i18n="recovery.flows.caption">Klaviyo flows · $52,191 in 90 days</figcaption>
+      </figure>
+      <figure class="shot reveal">
+        <div class="shot__frame">
+          <img src="assets/wa-details.webp" width="577" height="815" loading="lazy" decoding="async" alt="Klaviyo WhatsApp flow details: 71.4% open rate, 41.7% click rate, 13.1% placed order, plus a preview of the approved message template sent to customers." data-i18n-attr="alt:recovery.wa.alt">
+        </div>
+        <figcaption data-i18n="recovery.wa.caption">WhatsApp flow · stats and message</figcaption>
+      </figure>
+      <div class="mosaic__stack">
+        <figure class="shot reveal">
+          <div class="shot__frame">
+            <img src="assets/sms-stats.webp" width="1280" height="345" loading="lazy" decoding="async" alt="Klaviyo SMS flow statistics: 25.18% click rate, 9.01% placed order rate, $13,645.13 revenue, $267.55 average order value, $25.08 per recipient." data-i18n-attr="alt:recovery.stats.alt">
+          </div>
+          <figcaption data-i18n="recovery.stats.caption">SMS flow · performance</figcaption>
+        </figure>
+        <figure class="shot reveal">
+          <div class="shot__frame">
+            <img src="assets/sms-phone.webp" width="685" height="536" loading="lazy" decoding="async" alt="Phone mockup of the recovery text message saying the order is still waiting and can be finished in a few taps, with a secure checkout link and a STOP opt-out line." data-i18n-attr="alt:recovery.phone.alt">
+          </div>
+          <figcaption data-i18n="recovery.phone.caption">What lands on the customer's phone</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- The only free-audit offer on the page: it belongs to the recovery service. -->
+    <div class="offer reveal">
+      <p class="offer__text" data-i18n="recovery.offer">Already have a store and just want this? Send me the link and I'll run a free abandoned-cart test on it — I place an order, abandon it, and send you a short video of what your store does next.</p>
+      <a class="btn btn--ghost" href="#contact"><span data-i18n="recovery.offerCta">Request the free test</span> <span aria-hidden="true">→</span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ 6. TOOLKIT ============================ -->
+<section class="section" id="more" aria-labelledby="more-title">
+  <div class="wrap">
+
+    <header class="section__head" data-stagger>
+      <p class="eyebrow reveal" data-i18n="more.eyebrow">Beyond the storefront</p>
+      <h2 class="section__title reveal" id="more-title" data-i18n="more.title">Also in the toolkit</h2>
+    </header>
+
+    <div class="toolkit" data-stagger>
+
+      <article class="tool reveal">
+        <h3 class="tool__title" data-i18n="more.bots.title">Telegram bots for stores</h3>
+        <p class="tool__body" data-i18n="more.bots.body">Catalogue, cart and cart recovery inside the messenger, for stores whose customers live in Telegram. Two short demos:</p>
+        <div class="videos">
+          <figure class="video">
+            <div class="video__box">
+              <a class="video__trigger" href="assets/bot-recovery-explainer.mp4" data-video aria-label="Play video: how cart recovery works in Telegram" data-i18n-attr="aria-label:more.video1.aria">
+                <img class="video__poster" src="assets/bot-recovery-explainer.webp" width="512" height="848" loading="lazy" decoding="async" alt="">
+                <span class="video__play" aria-hidden="true"></span>
+              </a>
+            </div>
+            <figcaption class="video__caption" id="video1-caption" data-i18n="more.video1.caption">How cart recovery works in Telegram</figcaption>
+          </figure>
+          <figure class="video">
+            <div class="video__box">
+              <a class="video__trigger" href="assets/bot-catalog-demo.mp4" data-video aria-label="Play video: a store bot with catalogue, cart and checkout" data-i18n-attr="aria-label:more.video2.aria">
+                <img class="video__poster" src="assets/bot-catalog-demo.webp" width="507" height="832" loading="lazy" decoding="async" alt="">
+                <span class="video__play" aria-hidden="true"></span>
+              </a>
+            </div>
+            <figcaption class="video__caption" id="video2-caption" data-i18n="more.video2.caption">Store bot: catalogue, cart, order</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="tool reveal">
+        <h3 class="tool__title" data-i18n="more.woo.title">Custom WooCommerce plugins</h3>
+        <p class="tool__body" data-i18n="more.woo.body">Purpose-built plugins for a high-volume store, including a payment-error assistant that turns failed transactions into orders. In production, accepted by the client's in-house developers.</p>
+      </article>
+
+      <article class="tool reveal">
+        <h3 class="tool__title" data-i18n="more.ai.title">AI support agents</h3>
+        <p class="tool__body" data-i18n="more.ai.body">Self-hosted Chatwoot with an AI agent on the first line. Support efficiency and lead retention up 135%, with no per-seat fees.</p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ 7. ABOUT ============================ -->
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="about">
+
+      <div class="reveal">
+        <img class="about__portrait" src="assets/portrait.webp" width="534" height="751" loading="lazy" decoding="async" alt="Portrait of Artem Matveev." data-i18n-attr="alt:about.alt">
+      </div>
+
+      <div class="about__body">
+        <header data-stagger>
+          <p class="eyebrow reveal" data-i18n="about.eyebrow">About</p>
+          <h2 class="section__title reveal" id="about-title" data-i18n="about.title">Who you'd be working with</h2>
+          <p class="about__lede reveal" data-i18n="about.lede">I'm Artem Matveev. I build stores and fix the revenue side of e-commerce around them: conversion, checkout and the buyers who leave.</p>
+        </header>
+
+        <ul class="about__list" data-stagger>
+          <li class="reveal" data-i18n="about.b1"><strong>7+ years in e-commerce growth.</strong> Conversion, direct-response copy and automation in one head, where agencies split them across three people.</li>
+          <li class="reveal" data-i18n="about.b2"><strong>Platforms:</strong> Shopify, WooCommerce, WordPress, Webflow · Klaviyo, WhatsApp &amp; Telegram APIs, Chatwoot · Google Analytics, Hotjar.</li>
+          <li class="reveal" data-i18n="about.b3"><strong>Started in direct-response copywriting</strong> (200+ projects) before going technical, which is why my pages sell rather than just function.</li>
+          <li class="reveal" data-i18n="about.b4"><strong>Working languages:</strong> English, German, Russian. I run funnels across Western and Eastern markets.</li>
+        </ul>
+
+        <p class="about__how reveal" data-i18n="about.how"><strong>How I work:</strong> fully async. You message, I ship, you see results in your own dashboards. No discovery calls, no weekly syncs, no invoices for meetings.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 8. PROCESS ============================ -->
+<section class="section" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+
+    <header class="section__head" data-stagger>
+      <p class="eyebrow reveal" data-i18n="process.eyebrow">How a build works</p>
+      <h2 class="section__title reveal" id="process-title" data-i18n="process.title">From first message to a store that sells.</h2>
+    </header>
+
+    <div class="process draw">
+      <span class="process__line" aria-hidden="true"></span>
+      <ol class="steps" data-stagger>
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">01</span>
+          <h3 class="step__title" data-i18n="process.1.title">Tell me what you're selling.</h3>
+          <p class="step__body" data-i18n="process.1.body">A link to your current store, a brand deck, or a paragraph describing the product. That's enough for me to scope the work.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">02</span>
+          <h3 class="step__title" data-i18n="process.2.title">Fixed scope, fixed price.</h3>
+          <p class="step__body" data-i18n="process.2.body">Within two business days you get it in writing: what gets built, what it costs, how long it takes. No hourly billing, no scope drift.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__n" aria-hidden="true">03</span>
+          <h3 class="step__title" data-i18n="process.3.title">Built, launched, handed over.</h3>
+          <p class="step__body" data-i18n="process.3.body">Most stores go live in two to four weeks. You approve by message, I ship. You get the theme, the documentation, and full ownership of everything.</p>
+        </li>
+      </ol>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================ 9. CONTACT ============================ -->
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="contact reveal">
+
+      <p class="eyebrow eyebrow--accent" data-i18n="contact.eyebrow">New projects</p>
+      <h2 class="contact__title" id="contact-title" data-i18n="contact.title">Need a Shopify store that actually sells?</h2>
+      <p class="contact__body" data-i18n="contact.body1">Send me a link to your current store, or just tell me what you sell. Within two business days you get a written scope: what I'd build, what it costs, and how long it takes.</p>
+      <p class="contact__body" data-i18n="contact.body2">If what you need is conversion work or checkout recovery on a store you already have, say so — I do that too.</p>
+
+      <div class="contact__actions">
+        <a class="btn btn--accent btn--lg" href="https://t.me/tantalizingstarclusterfuck" target="_blank" rel="noopener"><span data-i18n="contact.telegram">Start a project on Telegram</span> <span aria-hidden="true">→</span><span class="sr-only" data-i18n="common.newTab">(opens in a new tab)</span></a>
+        <p class="contact__alt">
+          <span data-i18n="contact.emailLead">or email</span>
+          <!-- TODO: placeholder address — replace with the real inbox before launch. -->
+          <a class="link" href="mailto:hello@ecomfixer.com">artemchinsky@yahoo.com</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ 10. FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+
+    <div>
+      <a class="wordmark" href="#top" aria-label="ecomfixer — back to top" data-i18n-attr="aria-label:nav.home"><span class="wordmark__mark" aria-hidden="true"></span>ecomfixer</a>
+      <p class="footer__line" data-i18n="footer.line">Shopify development · CRO · checkout recovery</p>
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer" data-i18n-attr="aria-label:footer.navLabel">
+      <ul>
+        <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#approach" data-i18n="nav.approach">Approach</a></li>
+        <li><a href="#cro" data-i18n="nav.cro">CRO</a></li>
+        <li><a href="#recovery" data-i18n="nav.recovery">Recovery</a></li>
+        <li><a href="#more" data-i18n="footer.more">Toolkit</a></li>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#process" data-i18n="footer.process">Process</a></li>
+        <li><a href="#contact" data-i18n="footer.contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer__meta">
+      <button class="lang js-lang" type="button" aria-pressed="false" aria-label="Switch to Russian" data-i18n-attr="aria-label:lang.aria">
+        <span class="lang__opt is-active" data-lang="en">EN</span><span aria-hidden="true">/</span><span class="lang__opt" data-lang="ru">RU</span>
+      </button>
+      <span>© <span data-year>2026</span> ecomfixer</span>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
